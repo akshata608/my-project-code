@@ -21,10 +21,13 @@ const handleSubmit =(event)=>
   setTaskValue("")
 
 }
+/*
+JAVAScript code to handle form submission and task management
+*/
   return (
     <section className="addtask">
         <form onSubmit={handleSubmit}> 
-            <label htmlFor='task'>Task Name:</label>
+            <label htmlFor='task'>TASK NAME:</label>
             <input onChange={(e)=>setTaskValue(e.target.value)} type='text' name='task' id='task' placeholder='add task' value={taskValue} autoComplete='off'/>
             <select onChange={(e)=>setProgress(e.target.value)} value={progress}> 
               <option value={false}>Pending</option>
