@@ -2,11 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import { TaskCard } from './TaskCard';
 
-export const Task = (props) => {
+export const Task = ({setTasks,tasks,title}) => {
      const [count,setCount] = useState(0)
-      const [tasks,setTasks] =useState([{id:1, name:"react js course",completed:true},
-        {id:2, name:"python course",completed:false},
-        {id:3, name:"java course",completed:false}]);
+     
         const [show, setShow] = useState(true);
     
     
@@ -35,7 +33,7 @@ export const Task = (props) => {
               <button  onClick={handleSub} className='Sub'>SUB</button>
 
             </div>
-            <h1> Task list {props.title}</h1>
+            <h1> Task list {title}</h1>
              <div class="center-container">
             <button className='trigger' onClick={()=>setShow(!show)}>{show ? "Hide" : "Show"}</button> 
             </div>
@@ -43,7 +41,7 @@ export const Task = (props) => {
              <ul>
                
              {
-              tasks.map((t,i)=><TaskCard t={t}  deleteRow ={deleteRow} kay={t.id} title = {props.title}/>) //prop driling
+              tasks.map((t,i)=><TaskCard t={t}  deleteRow ={deleteRow} kay={t.id} title = {title}/>) //prop driling
              }
               </ul>
 

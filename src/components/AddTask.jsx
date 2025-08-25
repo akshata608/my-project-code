@@ -4,7 +4,7 @@ import"./AddTask.css"
 
 
 
-export const AddTask = () => {
+export const AddTask = ({tasks,setTasks}) => {
     const[taskValue,setTaskValue] = useState("")
     const[progress,setProgress] = useState(false)
 
@@ -15,10 +15,11 @@ const handleSubmit =(event)=>
   const task= {
     id: Math.floor(Math.random() * 100000),
     name: taskValue,
-    completed: progress
+    completed: Boolean(progress)
   }
   console.log("task is:", task)
   setTaskValue("")
+  setTasks([...tasks,task])
 
 }
 /*
@@ -31,7 +32,7 @@ JAVAScript code to handle form submission and task management
             <input onChange={(e)=>setTaskValue(e.target.value)} type='text' name='task' id='task' placeholder='add task' value={taskValue} autoComplete='off'/>
             <select onChange={(e)=>setProgress(e.target.value)} value={progress}> 
               <option value={false}>Pending</option>
-              <option value={true}>Complted</option>
+              <option value={true}>Completed</option>
             </select>
             <button type='submit'>Add Task</button> 
             <span onClick={()=>setTaskValue("")} className='reset'>Reset</span>      
